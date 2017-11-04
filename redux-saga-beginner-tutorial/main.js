@@ -26,7 +26,7 @@ function render() {
       onIncrement={() => action('INCREMENT')}
       onDecrement={() => action('DECREMENT')}
       onIncrementAsync={() => action('INCREMENT_ASYNC')}
-      login={() => action('LOGIN_REQUEST')}
+      login={() => action('LOGIN_REQUEST', { username: "abc", password: "pw" })}
       logout={() => action('LOGOUT')} />,
     document.getElementById('root')
   )
