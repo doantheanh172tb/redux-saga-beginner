@@ -21,7 +21,7 @@ export class Gallery extends Component {
         <div className="image-scroller">
           {images.map((image, index) => (
             <div key={index} onClick={() => selectImage(image)}>
-              <img src={image} />
+              <img class={image == selectedImage ? "image-selected" : "image-unselect"} src={image} />
             </div>
           ))}
         </div>
