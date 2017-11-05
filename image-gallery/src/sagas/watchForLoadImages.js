@@ -5,6 +5,7 @@ export function* loadImages() {
     const images = yield fetchImages()
     console.log("Saga::loagImages>put->IMAGES_LOADED", images)
     yield put({ type: 'IMAGES_LOADED', images })
+    yield put({ type: 'IMAGE_SELECTED', image: images[0] })
 }
 
 export function* watchForLoadImages() {
