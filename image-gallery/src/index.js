@@ -13,5 +13,6 @@ ReactDOM.render(
     <Provider store={store}>
         <Gallery />
     </Provider>,
-    document.getElementById('root'));
+    document.getElementById('root')
+);
 registerServiceWorker();
