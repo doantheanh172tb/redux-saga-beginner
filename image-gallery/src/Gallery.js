@@ -1,25 +1,33 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
 import './css/gallery.css';
 
-const flickrImages = [
-  "http://data.whicdn.com/images/17745253/622087-bigthumbnail_large.jpg",
-  "http://donpk.com/wp-content/uploads/2016/04/Beautiful_nature_3d_wallpapers_for-desktop_brackgrounds03-1024x573.jpg?x46012",
-  "http://f9view.com/wp-content/uploads/2013/06/Heart-Touching-Wallpapers-For-Desktop-Natural-Scene_3.jpg",
-  "http://f9view.com/wp-content/uploads/2013/06/Wallpapers-for-Desktop-Heart-Touching-View.jpg",
-  "http://image.desk7.net/Landscape%20Wallpapers/5589_1280x800.jpg"
-];
-
-export default class Gallery extends Component {
+export class Gallery extends Component {
   constructor(props) {
     super(props);
+    this.props.dispatch({type: 'TEST'});
+    console.log(props);
     this.state = {
-      images: flickrImages,
-      selectedImage: flickrImages[0]
+      images: []
     }
   }
   handleThumbClick(selectedImage) {
     this.setState({
       selectedImage
+    })
+  }
+  componentDidMount() {
+    const API_KEY = 'a46a979f39c49975dbdd23b378e6d3d5';
+    const API_ENDPOINT = `https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=${API_KEY}&format=json&nojsoncallback=1&per_page=5`;
+
+    fetch(API_ENDPOINT).then((response) => {
+      return response.json().then((json) => {
+        const images = json.photos.photo.map(({ farm, server, id, secret }) => {
+          return `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}.jpg`
+        });
+
+        this.setState({ images, selectedImage: images[0] });
+      })
     })
   }
   render() {
@@ -42,3 +50,4 @@ export default class Gallery extends Component {
     )
   }
 }
+export default connect()(Gallery)

@@ -16,5 +16,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "envify": "^4.1.0",
+    "uglify-js": "^3.1.6",
+    "uglifyify": "^4.0.4"
   }
 }
