@@ -12,7 +12,7 @@ export function* loadImages() {
     }
 }
 
-export function* watchForLoadImages() {
+export default function* (){
     while (true) {
         yield take('LOAD_IMAGES');
         yield loadImages();

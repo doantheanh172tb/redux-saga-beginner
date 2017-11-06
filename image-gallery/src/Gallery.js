@@ -7,6 +7,7 @@ import * as GalleryActions from './actions.js';
 
 export class Gallery extends Component {
   componentDidMount() {
+    console.log("Gallery:componentDidMount->loadImages")
     this.props.loadImages();
   }
   render() {
@@ -15,13 +16,13 @@ export class Gallery extends Component {
       <div className="image-gallery">
         <div className="gallery-image">
           <div>
-            <img src={selectedImage} />
+            <img alt="Alt Image Default" src={selectedImage} />
           </div>
         </div>
         <div className="image-scroller">
           {images.map((image, index) => (
             <div key={index} onClick={() => selectImage(image)}>
-              <img className={image == selectedImage ? "image-selected" : "image-unselect"} src={image} />
+              <img alt="Alt Image Default" className={image === selectedImage ? "image-selected" : "image-unselect"} src={image} />
             </div>
           ))}
         </div>
@@ -32,8 +33,8 @@ export class Gallery extends Component {
 function mapStateToProps(state) {
   console.log("Gallery:mapStateToProps", state)
   return {
-    images: state.images,
-    selectedImage: state.selectedImage
+    images: state.ImagesReducer.images,
+    selectedImage: state.ImagesReducer.selectedImage
   }
 }
 function mapActionCreatorsToProps(dispatch) {

@@ -9,6 +9,7 @@ export function selectImage(image) {
 }
 
 export function loadImages() {
+    console.log("loadImages")
     return {
         type: LOAD_IMAGES
     }
