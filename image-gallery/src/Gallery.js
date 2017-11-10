@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './css/gallery.css';
 
 import { bindActionCreators } from 'redux'
-import * as GalleryActions from './actions.js';
+import * as imageAction from './Actions/galleryAction';
 
 export class Gallery extends Component {
   componentDidMount() {
@@ -33,11 +33,11 @@ export class Gallery extends Component {
 function mapStateToProps(state) {
   console.log("Gallery:mapStateToProps", state)
   return {
-    images: state.ImagesReducer.images,
-    selectedImage: state.ImagesReducer.selectedImage
+    images: state.ImagesReducer.images
+    , selectedImage: state.ImagesReducer.selectedImage
   }
 }
 function mapActionCreatorsToProps(dispatch) {
-  return bindActionCreators(GalleryActions, dispatch);
+  return bindActionCreators(imageAction, dispatch);
 }
 export default connect(mapStateToProps, mapActionCreatorsToProps)(Gallery)

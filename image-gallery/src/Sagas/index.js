@@ -6,7 +6,7 @@ import loginFlow from '../Sagas/loginFlow'
 
 export default function* rootSaga() {
     yield [
-        fork(watchForLoadImages),
-        fork(loginFlow)        
+        fork(watchForLoadImages)
+        , fork(loginFlow)
     ];
 }

@@ -1,0 +1,10 @@
+export const LOGIN_REQUEST = "LOGIN_REQUEST"
+export const LOGIN_REQUEST_TYPE = "LOGIN_REQUEST_TYPE"
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
+export const LOGOUT = "LOGOUT"
+export const LOGOUT_ERROR = "LOGOUT_ERROR"
+export const LOGIN_ERROR = "LOGIN_ERROR"
+
+export const IMAGE_SELECTED = 'IMAGE_SELECTED'
+export const LOAD_IMAGES = 'LOAD_IMAGES'
+export const IMAGES_LOADED = "IMAGES_LOADED"

@@ -1,4 +1,4 @@
-import { fetchImages } from '../api'
+import { fetchImages } from '../Api/imageApi'
 import { put, take } from 'redux-saga/effects'
 
 export function* loadImages() {

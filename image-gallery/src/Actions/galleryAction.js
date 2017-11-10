@@ -1,5 +1,4 @@
-export const IMAGE_SELECTED = 'IMAGE_SELECTED';
-const LOAD_IMAGES = 'LOAD_IMAGES';
+import { IMAGE_SELECTED, LOAD_IMAGES } from '../Constants/actionsType'
 
 export function selectImage(image) {
     return {
@@ -9,7 +8,6 @@ export function selectImage(image) {
 }
 
 export function loadImages() {
-    console.log("loadImages")
     return {
         type: LOAD_IMAGES
     }
